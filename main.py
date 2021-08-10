@@ -1,7 +1,6 @@
 # #variable
 # name = "Harry"
 # #list
-# names = ["harry", "ron", "hermoine"]
 # print(names)
 # print(f'main - {names[0]}')
 # print(name[0])
@@ -34,5 +33,33 @@
 # houses["hermoine"] = "gryfindor"
 # print(houses["harry"])
 # print(houses)
-def square(x):
-    return x * x
+# def square(x):
+#     return x * x
+# class Point():
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+
+# p = Point(12,5)
+# print(p.x)
+# print(p.y)
+class Flight():
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.passengers = []
+    def add_passenger(self,name):
+        if not self.vacant_seats():
+            return False
+        self.passengers.append(name)
+        return True
+    def vacant_seats(self):
+        return self.capacity - len(self.passengers)
+
+people = ["harry", "ron", "hermoine", "rudra"]
+flight = Flight(3)
+for person in people:
+    if flight.add_passenger(person):
+        print(f'Added {person} to flight sucessfully')
+    else:
+        print(f'No available seats for {person}')
+    
